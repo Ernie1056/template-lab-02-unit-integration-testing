@@ -11,12 +11,15 @@ TEST(EchoTest, EmptyString){
 }
 TEST(EchoTest, Numbers){
 	char* test_val[2]; test_val[0] = "./c-echo"; test_val[1] = "1";
+EXPECT_EQ("1", echo(2, test_val));
 }
 TEST(EchoTest, Symbols){
 	char* test_val[2]; test_val[0] = "./c-echo"; test_val[1] = "%&#";
+EXPECT_EQ("%&#", echo(2, test_val));
 }
 TEST(EchoTest, Space){
-	char* test_val[4]; test_val[0] = "./c-echo"; test_val[1] = "Hello"; test_val[2] = " "; test_val[3] = "World";
+	char* test_val[2]; test_val[0] = "./c-echo"; test_val[1] = " ";
+EXPECT_EQ(" ", echo(2, test_val));
 }
 int main (int argc, char **argv){
 	::testing::InitGoogleTest(&argc, argv);
